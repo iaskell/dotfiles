@@ -231,6 +231,8 @@
 			"検索からのn,Nでステータスラインに現在の位置表示
 		NeoBundle 'tyru/caw.vim'
 		NeoBundle 'kana/vim-altr'
+		NeoBundle 'mattn/emmet-vim'
+			"zencodingみたいなやつ
 	"for C++
 		NeoBundle 'osyo-manga/vim-stargate'
 			"include文の補助
