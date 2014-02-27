@@ -625,7 +625,7 @@ let g:stargate#include_paths = {
 	let g:ctrlp_map = '<C-U><C-P>'
 	let g:ctrlp_show_hidden = 1 "Set this to 1 if you want CtrlP to scan for dotfiles and dotdirs
 	let g:ctrlp_jump_to_buffer      = 2 " タブで開かれていた場合はそのタブに切り替える
-	let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
+	"let g:ctrlp_clear_cache_on_exit = 0 " 終了時キャッシュをクリアしない
 	let g:ctrlp_mruf_max            = 500 " MRUの最大記録数
 	let g:ctrlp_highlight_match     = [1, 'IncSearch'] " 絞り込みで一致した部分のハイライト
 	let g:ctrlp_open_multi          = '10t' " 複数ファイルを開く時にタブで最大10まで開く
@@ -639,5 +639,4 @@ let g:stargate#include_paths = {
 "-----todo neocomp,neosnip周りの煮詰め
 "-----todo clang_comp周辺
 "あとはjediとかrsenseとかを必要に応じて
-"vim-powerlineとかzencodingとかsmartchrとか
-"surrond,textobj辺り
+"vim-powerlineとかsmartchrとか
