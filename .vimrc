@@ -231,6 +231,7 @@
 			"検索からのn,Nでステータスラインに現在の位置表示
 		NeoBundle 'tyru/caw.vim'
 		NeoBundle 'kana/vim-altr'
+		NeoBundle 'changed'
 		NeoBundle 'mattn/emmet-vim'
 			"zencodingみたいなやつ
 	"for C++
@@ -633,6 +634,10 @@ let g:stargate#include_paths = {
 	let g:ctrlp_custom_ignore = {
 	\	'dir':  '\v[\/]\.?(extlib|git|hg|svn)$',
 	\}
+" }}}
+
+" for Changed.vim {{{
+	nnoremap <C-C><C-C> :Changed<CR>
 " }}}
 
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
