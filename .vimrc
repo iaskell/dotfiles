@@ -234,6 +234,28 @@
 		NeoBundle 'changed'
 		NeoBundle 'mattn/emmet-vim'
 			"zencodingみたいなやつ
+	"for text-obj
+		NeoBundle 'tpope/vim-surround'
+		NeoBundle 'kana/vim-textobj-user'
+		NeoBundle 'rhysd/vim-textobj-ruby'
+			"ruby(r)
+		NeoBundle 'kana/vim-textobj-function'
+			"function(f)
+		NeoBundle 'kana/vim-textobj-indent'
+			"indent(l)
+			"ex.)>iiや>iaで現在行のインデントと同じインデント数の続いた行に対してインデント/デインデント
+		NeoBundle 'kana/vim-textobj-underscore'
+			"underscore(_)
+		NeoBundleLazy 'thinca/vim-textobj-between' "デフォのキーマップを無効化するために後で読み込む
+			"任意の文字(f->i)
+		NeoBundle 'mattn/vim-textobj-url'
+			"URL(u)
+		NeoBundle 'saihoooooooo/vim-textobj-space'
+			"連続したスペース(S) "-----<Space>とかsにリマップするかも
+	"for vim-operator
+		NeoBundle 'kana/vim-operator-replace.git'
+		NeoBundle 'kana/vim-operator-user.git'
+		NeoBundle 'emonkak/vim-operator-sort'
 	"for C++
 		NeoBundle 'osyo-manga/vim-stargate'
 			"include文の補助
@@ -634,6 +656,20 @@ let g:stargate#include_paths = {
 	let g:ctrlp_custom_ignore = {
 	\	'dir':  '\v[\/]\.?(extlib|git|hg|svn)$',
 	\}
+" }}}
+
+" for vim-operator {{{
+	map <C-C><C-R>  <Plug>(operator-replace)
+	map <C-C><C-S>  <Plug>(operator-sort)
+" }}}
+
+" for vim-textobj-between.vim {{{
+	let g:textobj_between_no_default_key_mappings = 1
+	NeoBundleSource 'vim-textobj-between'
+	vmap ai <Plug>(textobj-between-a)
+	vmap ii <Plug>(textobj-between-i)
+	omap ai <Plug>(textobj-between-a)
+	omap ii <Plug>(textobj-between-i)
 " }}}
 
 " for Changed.vim {{{
