@@ -179,6 +179,7 @@
 			\    },
 			\ }
 		NeoBundle 'Shougo/neocomplete.vim'
+		NeoBundle 'supermomonga/neocomplete-rsense.vim'
 		NeoBundle 'Shougo/neosnippet.vim'
 		NeoBundle 'Shougo/neosnippet-snippets'
 		NeoBundle 'kien/ctrlp.vim', {'depends' : 'haya14busa/vim-migemo'}
@@ -200,6 +201,7 @@
 		NeoBundle 'Yggdroot/indentLine'
 		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
 		NeoBundle 'mattn/unite-gist'
+		NeoBundle 'vim-ruby/vim-ruby'
 			
 		NeoBundle 'Shougo/vimshell.git'
 		NeoBundle 'Shougo/vimfiler.git'
@@ -222,6 +224,7 @@
 			"単語のハイライト
 			"-----あとで調べる
 		NeoBundle 'thinca/vim-ref'
+		NeoBundle 'yuku-t/vim-ref-ri'
 			"ex.)`:Ref perldoc -f pack`
 		NeoBundle 'osyo-manga/vim-over'
 			"ハイライトしつつ置換用
@@ -267,6 +270,8 @@
 		\}
 		NeoBundle 'jceb/vim-hier'
 			"quickfixの該当箇所に破線
+		NeoBundle 'tpope/vim-rails'
+		NeoBundle 'vim-scripts/ruby-matchit'
 	"カラースキーム
 		NeoBundle 'tomasr/molokai'
 		NeoBundle 'nanotech/jellybeans.vim'
@@ -547,6 +552,10 @@ let g:stargate#include_paths = {
 	\    '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 	let g:neocomplete#force_omni_input_patterns.objcpp =
 	\    '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'	
+
+	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+	let g:neocomplete#force_omni_input_patterns.ruby =
+	\ '[^. *\t]\.\w*\|\h\w*::'
 
 	" コマンドオプション
 	let g:clang_user_options = '-std=c++11'

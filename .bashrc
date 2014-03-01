@@ -193,3 +193,9 @@ alias dstat-disk='dstat -Tcldr'
 
 	export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
+#for ruby
+	export PATH="$HOME/.rbenv/bin:$PATH"
+	eval "$(rbenv init -)"
+
+	export GEM_HOME=~/.gem/
+	export PATH=$GEM_HOME/bin:$PATH
