@@ -688,10 +688,6 @@ let g:stargate#include_paths = {
 	omap ii <Plug>(textobj-between-i)
 " }}}
 
-" for Changed.vim {{{
-	nnoremap <C-C><C-C> :Changed<CR>
-" }}}
-
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
 "vim-powerlineとかsmartchrとか
 "unite-rails,AlpacaTags辺りは後々考える
