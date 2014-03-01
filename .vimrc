@@ -693,7 +693,5 @@ let g:stargate#include_paths = {
 " }}}
 
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
-"-----todo neocomp,neosnip周りの煮詰め
-"-----todo clang_comp周辺
-"あとはjediとかrsenseとかを必要に応じて
 "vim-powerlineとかsmartchrとか
+"unite-rails,AlpacaTags辺りは後々考える
