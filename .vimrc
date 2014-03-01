@@ -181,8 +181,8 @@
 		NeoBundle 'Shougo/neocomplete.vim'
 		NeoBundle 'Shougo/neosnippet.vim'
 		NeoBundle 'Shougo/neosnippet-snippets'
-		NeoBundle "kien/ctrlp.vim", {'depends' : 'haya14busa/vim-migemo'}
-		NeoBundle 'Shougo/unite.vim.git'
+		NeoBundle 'kien/ctrlp.vim', {'depends' : 'haya14busa/vim-migemo'}
+		NeoBundle 'Shougo/unite.vim'
 		NeoBundle 'Shougo/neomru.vim'
 		NeoBundle 'ujihisa/unite-colorscheme'
 		NeoBundle 'Shougo/unite-outline'
@@ -196,7 +196,7 @@
 		NeoBundle 'thinca/vim-quickrun'
 		NeoBundle 'osyo-manga/shabadou.vim'
 		NeoBundle 'osyo-manga/quickrun-hook-u-nya-'
-		NeoBundle "osyo-manga/vim-watchdogs"
+		NeoBundle 'osyo-manga/vim-watchdogs'
 		NeoBundle 'Yggdroot/indentLine'
 		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
 		NeoBundle 'mattn/unite-gist'
