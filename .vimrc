@@ -273,6 +273,7 @@
 		NeoBundle 'tpope/vim-rails'
 		NeoBundle 'vim-scripts/ruby-matchit'
 		NeoBundle 'alpaca-tc/alpaca_english.git'
+		NeoBundle 'scrooloose/syntastic'
 	"カラースキーム
 		NeoBundle 'tomasr/molokai'
 		NeoBundle 'nanotech/jellybeans.vim'
@@ -686,6 +687,11 @@ let g:stargate#include_paths = {
 	vmap ii <Plug>(textobj-between-i)
 	omap ai <Plug>(textobj-between-a)
 	omap ii <Plug>(textobj-between-i)
+" }}}
+
+" for syntastic {{{
+	let g:syntastic_enable_signs=1
+	let g:syntastic_auto_loc_list=2
 " }}}
 
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
