@@ -272,6 +272,7 @@
 			"quickfixの該当箇所に破線
 		NeoBundle 'tpope/vim-rails'
 		NeoBundle 'vim-scripts/ruby-matchit'
+		NeoBundle 'alpaca-tc/alpaca_english.git'
 	"カラースキーム
 		NeoBundle 'tomasr/molokai'
 		NeoBundle 'nanotech/jellybeans.vim'
@@ -344,6 +345,12 @@
 		noremap <C-U><C-S><C-G><C-E><C-L> :Unite neosnippet/runtime<CR>
 	" snippet
 		noremap <C-U><C-S> :Unite neosnippet<CR>
+	" english_dictionary
+		noremap <C-U><C-D><C-E> :Unite english_dictionary<CR>
+	" english_example
+		noremap <C-U><C-D><C-E><C-E> :Unite english_example<CR>
+	" english_thesaurus
+		noremap <C-U><C-D><C-E><C-R> :Unite english_thesaurus<CR>
 	
 	"------部分マッチしないし、↓も上手く動かないので諦めた。
 	"	"-----この辺機能してるのかよく分かってない
