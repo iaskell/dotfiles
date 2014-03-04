@@ -202,3 +202,8 @@ fi
 
 	export GEM_HOME=~/.gem/
 	export PATH=$GEM_HOME/bin:$PATH
+
+#for perlbrew
+if [ -s ~/perl5/perlbrew/etc/bashrc ]; then
+	source ~/perl5/perlbrew/etc/bashrc
+fi
