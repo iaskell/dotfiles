@@ -289,6 +289,8 @@
 		autocmd FileType cpp setlocal path=.,/usr/include/c++/4.7,/usr/include/c++/4.7/x86_64-linux-gnu,/usr/include/c++/4.7/backward,/usr/include/c++/4.6,/usr/include/c++/4.6/x86_64-linux-gnu,/usr/include/c++/4.6/backward,/usr/local/include,/usr/include/x86_64-linux-gnu,/usr/include,/usr/include/clang/3.0/include/,/usr/lib/gcc/x86_64-linux-gnu/4.7/include,/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed,/usr/lib/gcc/x86_64-linux-gnu/4.6/include/,/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/
 	"-----あとでなんとかする
 	augroup END
+	
+	command Gdb !clang++ -g4 -O0 -std=c++11 -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
 " }}}
 
 "for :DiffOrig {{{
