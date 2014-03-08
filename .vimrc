@@ -201,6 +201,7 @@
 		NeoBundle 'Yggdroot/indentLine'
 		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
 		NeoBundle 'mattn/unite-gist'
+		NeoBundle 'davidhalter/jedi-vim'
 		NeoBundle 'vim-ruby/vim-ruby'
 			
 		NeoBundle 'Shougo/vimshell.git'
@@ -291,6 +292,16 @@
 	augroup END
 	
 	command Gdb !clang++ -g4 -O0 -std=c++11 -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
+" }}}
+
+" for python {{{
+	autocmd FileType python call s:python_tabsetting()
+	function! s:python_tabsetting()
+	    "setlocal shiftwidth=4
+		setlocal tabstop=8
+		"setlocal softtabstop=4
+		"setlocal expandtab
+	endfunction
 " }}}
 
 "for :DiffOrig {{{
@@ -566,6 +577,12 @@ let g:stargate#include_paths = {
 	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 	let g:neocomplete#force_omni_input_patterns.ruby =
 	\ '[^. *\t]\.\w*\|\h\w*::'
+
+	autocmd FileType python setlocal omnifunc=jedi#completions
+	let g:jedi#completions_enabled = 0
+	let g:jedi#auto_vim_configuration = 0
+	let g:neocomplete#force_omni_input_patterns.python =
+	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 	" コマンドオプション
 	let g:clang_user_options = '-std=c++11'
