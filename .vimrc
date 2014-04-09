@@ -269,6 +269,9 @@
 		NeoBundleLazy 'Rip-Rip/clang_complete', {
 		\	'autoload' : {'filetypes' : ['c', 'cpp']}
 		\}
+		NeoBundleLazy 'rhysd/vim-clang-format', {
+        \	'autoload' : {'filetypes' : ['c', 'cpp', 'objc']}
+        \}
 		NeoBundle 'jceb/vim-hier'
 			"quickfixの該当箇所に破線
 		NeoBundle 'tpope/vim-rails'
@@ -287,7 +290,7 @@
 " for cpp {{{
 	augroup cpp-path
 		autocmd!
-		autocmd FileType cpp setlocal path=.,/usr/include/c++/4.7,/usr/include/c++/4.7/x86_64-linux-gnu,/usr/include/c++/4.7/backward,/usr/include/c++/4.6,/usr/include/c++/4.6/x86_64-linux-gnu,/usr/include/c++/4.6/backward,/usr/local/include,/usr/include/x86_64-linux-gnu,/usr/include,/usr/include/clang/3.0/include/,/usr/lib/gcc/x86_64-linux-gnu/4.7/include,/usr/lib/gcc/x86_64-linux-gnu/4.7/include-fixed,/usr/lib/gcc/x86_64-linux-gnu/4.6/include/,/usr/lib/gcc/x86_64-linux-gnu/4.6/include-fixed/
+		autocmd FileType cpp setlocal path=.,/usr/local/include,/usr/include/x86_64-linux-gnu,/usr/include,/usr/include/clang/3.3/include/
 	"-----あとでなんとかする
 	augroup END
 	
@@ -644,7 +647,7 @@ let g:stargate#include_paths = {
 	\   },
 	\   "cpp" : {
 	\       "type" : "cpp/clang++",
-	\       "cmdopt" : "-std=c++11 -ID:/home/cpp/boost/boost_1_55_0",
+	\       "cmdopt" : "-std=c++11 --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
 	\   },
 	\   "watchdogs_checker/_" : {
 	\       "hook/close_quickfix/enable_success" : 1,
@@ -711,6 +714,10 @@ let g:stargate#include_paths = {
 " for syntastic {{{
 	let g:syntastic_enable_signs=1
 	let g:syntastic_auto_loc_list=2
+	if executable("clang++")
+		let g:syntastic_cpp_compiler = 'clang++'
+		let g:syntastic_cpp_compiler_options = '--std=c++11 -stdlib=libc++'
+	endif
 " }}}
 
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
