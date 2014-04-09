@@ -64,13 +64,31 @@
 	set foldmethod=marker
 "}}}
 
-" キーマップ {{{
+" my keymap {{{
 	" Yの動作をDやCと同じにする
 		map Y y$
 	"C-Pでペーストモードトグル
 		set pastetoggle=<C-C><C-P>
 	" C-C無効化 (unite-colorのマッピングのため）
 		map <C-C> <NOP>
+	"範囲選択+Tabでインデント
+		xmap <TAB> >
+		xmap <S-TAB> <
+"}}}
+
+" my command {{{
+	"文字コードを変えて開きなおす
+		command ReopenInEuc :e ++enc=euc-jp-ms
+		command ReopenInJis :e ++enc=iso-2022-jp-3
+		command ReopenInSjis :e ++enc=cp932
+		command ReopenInUtf8 :e ++enc=utf-8
+		command Wsudo :w !sudo tee % > /dev/null
+	"DiffOrig
+		if has('unix')
+			command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+		endif
+	"保存時に行末の空白を除去する
+		autocmd BufWritePre * :%s/\s\+$//ge
 "}}}
 
 " ステータスライン {{{
@@ -307,13 +325,6 @@
 	endfunction
 " }}}
 
-"for :DiffOrig {{{
-	"有効化
-	if has('unix')
-		command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
-	endif
-"}}}
-
 "for colorscheme {{{
 	set background=dark
 	colorscheme solarized
@@ -369,6 +380,8 @@
 	" english_thesaurus
 		noremap <C-U><C-D><C-E><C-R> :Unite english_thesaurus<CR>
 	
+
+	call unite#filters#matcher_default#use(['matcher_fuzzy'])
 	"------部分マッチしないし、↓も上手く動かないので諦めた。
 	"	"-----この辺機能してるのかよく分かってない
 	"	"	call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
@@ -617,6 +630,11 @@ let g:stargate#include_paths = {
 	smap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 	imap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 	smap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
+
+	" オムニ補完の手動呼び出し
+		inoremap <expr><C-Space> neocomplete#start_manual_complete()
+	" 補完候補の共通文字列補完
+		inoremap <expr><C-l> neocomplete#complete_common_string()
 	
 	" For snippet_complete marker.
 	if has('conceal')
