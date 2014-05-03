@@ -208,3 +208,4 @@ fi
 
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
+last
