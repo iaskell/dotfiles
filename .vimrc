@@ -83,6 +83,11 @@
 		command ReopenInSjis :e ++enc=cp932
 		command ReopenInUtf8 :e ++enc=utf-8
 		command Wsudo :w !sudo tee % > /dev/null
+	"wcのラッパー
+		command WordsChecker !wc -w %
+		command LinesChecker !wc -l %
+		command BytesChecker !wc -c %
+		command CharsChecker !wc -m %
 	"DiffOrig
 		if has('unix')
 			command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
