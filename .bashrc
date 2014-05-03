@@ -132,9 +132,6 @@ alias pa='ps -A'
 alias md='mkdir'
 alias rd='rmdir'
 alias rm='rm -i'
-alias st='git status'
-alias dff='git diff'
-alias lg='git log'
 
 alias euc2sjis='iconv -f euc-jp -t sjis'
 alias euc2utf='iconv -f euc-jp -t utf-8'
@@ -194,7 +191,7 @@ alias dstat-disk='dstat -Tcldr'
 	export PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
 
 #for ruby
-if [ -s ${HOME}/.rbenv ]; then 
+if [ -s ${HOME}/.rbenv ]; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
 	source ~/.rbenv/completions/rbenv.bash
