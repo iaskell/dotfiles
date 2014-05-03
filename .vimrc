@@ -5,7 +5,7 @@
 "バックアップファイルを作るディレクトリ
 	set backupdir=$HOME/.vimbackup
 "ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
-	set browsedir=buffer 
+	set browsedir=buffer
 "クリップボードをWindowsと連携
 	set clipboard=unnamed
 "Vi互換をオフ
@@ -36,7 +36,7 @@
 	set ignorecase
 " ただし混在しているときは区別する
 	set smartcase
-" 検索時に最後まで行ったら最初に戻る 
+" 検索時に最後まで行ったら最初に戻る
 	set wrapscan
 " オートインデント、改行、インサートモード開始直後にバックスペースキーで削除できるようにする
 	set backspace=indent,eol,start
@@ -226,7 +226,7 @@
 		NeoBundle 'mattn/unite-gist'
 		NeoBundle 'davidhalter/jedi-vim'
 		NeoBundle 'vim-ruby/vim-ruby'
-			
+
 		NeoBundle 'Shougo/vimshell.git'
 		NeoBundle 'Shougo/vimfiler.git'
 
@@ -238,7 +238,7 @@
 		NeoBundle 'tyru/capture.vim'
 			"Vim のコマンドの結果を新規バッファへと出力するプラグインです。
 			"ex.) `:Capture map`,`:Capture !git --help'
-		"NeoBundle 'tyru/restart.vim' 
+		"NeoBundle 'tyru/restart.vim'
 			"Vim の再起動を行うプラグインです
 			"no useful on terminal
 		NeoBundle 'thinca/vim-prettyprint'
@@ -316,7 +316,7 @@
 		autocmd FileType cpp setlocal path=.,/usr/local/include,/usr/include/x86_64-linux-gnu,/usr/include,/usr/include/clang/3.3/include/
 	"-----あとでなんとかする
 	augroup END
-	
+
 	command Gdb !clang++ -g4 -O0 -std=c++11 -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
 " }}}
 
@@ -342,7 +342,7 @@
 
 "for Unite.vim {{{
 	" 入力モードで開始する
-		let g:unite_enable_start_insert=1	
+		let g:unite_enable_start_insert=1
 
 	" バッファ一覧
 		noremap <C-U><C-B> :Unite buffer<CR>
@@ -384,14 +384,14 @@
 		noremap <C-U><C-D><C-E><C-E> :Unite english_example<CR>
 	" english_thesaurus
 		noremap <C-U><C-D><C-E><C-R> :Unite english_thesaurus<CR>
-	
+
 
 	call unite#filters#matcher_default#use(['matcher_fuzzy'])
 	"------部分マッチしないし、↓も上手く動かないので諦めた。
 	"	"-----この辺機能してるのかよく分かってない
 	"	"	call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
 	"	"	call unite#filters#sorter_default#use(['sorter_rank'])
-	"	
+	"
 	"	" http://d.hatena.ne.jp/thinca/20101027/1288190498から。
 	"	" 部分マッチ目当てだけど、前のvimrcにこんなこと書いてたかなあ
 	"			call unite#custom#substitute('files', 'gp', '~/.vim' )
@@ -414,7 +414,7 @@
 		function! s:unite_my_settings()
 			" ESCキーを2回押すと終了する
 				nmap <buffer> <ESC><ESC> <Plug>(unite_exit)
-				imap <buffer> <ESC><ESC> <ESC><Plug>(unite_exit) 
+				imap <buffer> <ESC><ESC> <ESC><Plug>(unite_exit)
 			" C-Wで一階層上に
 				imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 				nmap <buffer> <C-w> <Plug>(unite_delete_backward_path)
@@ -425,7 +425,7 @@
 	let g:indentLine_color_term = 111
 	let g:indentLine_color_gui = '#708090'
 	let g:indentLine_char = '¦'
-	set list listchars=tab:\¦\ 
+	set list listchars=tab:\¦\
 "}}}
 
 " for gist.vim {{{
@@ -464,7 +464,7 @@
 	" 1 が設定されていれば有効になる
 	let g:enable_highlight_cursor_word = 1
 	" let g:enable_highlight_cursor_word = 1
-	
+
 	augroup highlight-cursor-word
 		autocmd!
 		autocmd CursorMoved * call s:hl_cword()
@@ -480,7 +480,7 @@
 		autocmd WinLeave * call s:hl_clear()
 		autocmd InsertEnter * call s:hl_clear()
 	augroup END
-	
+
 	function! s:hl_clear()
 		if exists("b:highlight_cursor_word_id") && exists("b:highlight_cursor_word")
 		silent! call matchdelete(b:highlight_cursor_word_id)
@@ -488,7 +488,7 @@
 		unlet b:highlight_cursor_word
 		endif
 	endfunction
-	
+
 	function! s:hl_cword()
 		let word = expand("<cword>")
 		if    word == ""
@@ -497,16 +497,16 @@
 		if get(b:, "highlight_cursor_word", "") ==# word
 		return
 		endif
-	
+
 		call s:hl_clear()
 		if !g:enable_highlight_cursor_word
 		return
 		endif
-	
+
 		if !empty(filter(split(word, '\zs'), "strlen(v:val) > 1"))
 		return
 		endif
-	
+
 		let pattern = printf("\\<%s\\>", expand("<cword>"))
 		silent! let b:highlight_cursor_word_id = matchadd("CursorWord", pattern)
 		let b:highlight_cursor_word = word
@@ -559,7 +559,7 @@ let g:stargate#include_paths = {
 		    setlocal balloonexpr=snowdrop#ballonexpr_typeof()
 		    setlocal ballooneval
 		endfunction
-		
+
 		augroup my-cpp
 		    autocmd!
 		    autocmd FileType cpp call s:cpp()
@@ -581,7 +581,7 @@ let g:stargate#include_paths = {
     let g:neocomplete#enable_smart_case = 1
 	"補完候補の共通文字列を補完する(シェル補完のような動作)
 		inoremap <expr><C-l> neocomplete#complete_common_string()
-	
+
 	if !exists('g:neocomplete#force_omni_input_patterns')
 		let g:neocomplete#force_omni_input_patterns = {}
 	endif
@@ -593,7 +593,7 @@ let g:stargate#include_paths = {
 	let g:neocomplete#force_omni_input_patterns.objc =
 	\    '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 	let g:neocomplete#force_omni_input_patterns.objcpp =
-	\    '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'	
+	\    '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 	autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 	let g:neocomplete#force_omni_input_patterns.ruby =
@@ -617,7 +617,7 @@ let g:stargate#include_paths = {
 	" Plugin key-mappings.
 	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 	smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-	
+
 	" スニペットを展開するキーマッピング
 	" <Tab> で選択されているスニペットの展開を行う
 	" 選択されている候補がスニペットであれば展開し、
@@ -640,7 +640,7 @@ let g:stargate#include_paths = {
 		inoremap <expr><C-Space> neocomplete#start_manual_complete()
 	" 補完候補の共通文字列補完
 		inoremap <expr><C-l> neocomplete#complete_common_string()
-	
+
 	" For snippet_complete marker.
 	if has('conceal')
 	  set conceallevel=2 concealcursor=i
@@ -676,18 +676,18 @@ let g:stargate#include_paths = {
 	\       "hook/close_quickfix/enable_success" : 1,
 	\   },
 	\}
-	
+
 	" :QuickRun 時に quickfix の中身をクリアする
 	" こうしておかないと quickfix の中身が残ったままになってしまうため
 	let s:hook = {
 	\   "name" : "clear_quickfix",
 	\   "kind" : "hook",
 	\}
-	
+
 	function! s:hook.on_normalized(session, context)
 	    call setqflist([])
 	endfunction
-	
+
 	call quickrun#module#register(s:hook, 1)
 	unlet s:hook
 " }}}
@@ -696,7 +696,7 @@ let g:stargate#include_paths = {
 " http://d.hatena.ne.jp/osyo-manga/20120924/1348473304
 	" g:quickrun_config に設定を追加
 	call watchdogs#setup(g:quickrun_config)
-	
+
 	" 保存後にシンタックスチェックを行う
 	let g:watchdogs_check_BufWritePost_enable = 1
 " }}}
