@@ -299,6 +299,7 @@
 			"quickfixの該当箇所に破線
 		NeoBundle 'tpope/vim-rails'
 		NeoBundle 'vim-scripts/ruby-matchit'
+		NeoBundle 'todesking/ruby_hl_lvar.vim'
 		NeoBundle 'alpaca-tc/alpaca_english.git'
 		NeoBundle 'scrooloose/syntastic'
 	"カラースキーム
