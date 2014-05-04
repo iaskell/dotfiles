@@ -96,6 +96,10 @@
 		autocmd BufWritePre * :%s/\s\+$//ge
 "}}}
 
+" my syntax {{{
+	au BufRead,BufNewFile .tmux.conf set filetype=tmuxconf
+" }}}
+
 " ステータスライン {{{
 	"set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=%l,%c%V%8P
 	set statusline=%<     " 行が長すぎるときに切り詰める位置
