@@ -118,6 +118,7 @@ alias ll='ls -l'
 alias lll='ls -al'
 alias killk='kill -KILL'
 alias pa='ps -A'
+alias top='top -d 1'
 
 
 alias md='mkdir'
