@@ -74,6 +74,8 @@
 	"範囲選択+Tabでインデント
 		xmap <TAB> >
 		xmap <S-TAB> <
+	"<C-S>で上へ、<C-D>で下へ
+		noremap <C-S> <C-U>
 "}}}
 
 " my command {{{
