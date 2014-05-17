@@ -349,6 +349,10 @@
 	" 入力モードで開始する
 		let g:unite_enable_start_insert=1
 
+	" fuzzy-matchを有効に
+	call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	let g:unite_matcher_fuzzy_max_input_length = 1/0
+
 	" バッファ一覧
 		noremap <C-U><C-B> :Unite buffer<CR>
 	" ファイル一覧
