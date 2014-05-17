@@ -396,30 +396,6 @@
 	" english_thesaurus
 		noremap <C-U><C-D><C-E><C-R> :Unite english_thesaurus<CR>
 
-
-	call unite#filters#matcher_default#use(['matcher_fuzzy'])
-	"------部分マッチしないし、↓も上手く動かないので諦めた。
-	"	"-----この辺機能してるのかよく分かってない
-	"	"	call unite#custom#source('file,file/new,buffer,file_rec', 'matchers', 'matcher_fuzzy')
-	"	"	call unite#filters#sorter_default#use(['sorter_rank'])
-	"
-	"	" http://d.hatena.ne.jp/thinca/20101027/1288190498から。
-	"	" 部分マッチ目当てだけど、前のvimrcにこんなこと書いてたかなあ
-	"			call unite#custom#substitute('files', 'gp', '~/.vim' )
-	"		" 環境変数の置換
-	"			call unite#custom#substitute('files', '\$\w\+', '\=eval(submatch(0))', 200)
-	"		" 部分マッチ
-	"			call unite#custom#substitute('files', '[^~.]\zs/', '*/*', 20)
-	"			call unite#custom#substitute('files', '/\ze[^*]', '/*', 10)
-	"		" /**/になる部分の調整、再帰が出来なくなるっぽい
-	"			call unite#custom#substitute('files', '\*\*\+', '*', -1)
-	"		" ホームディレクトリ展開
-	"			call unite#custom#substitute('files', '^\~', escape($HOME, '\'), -2)
-	"		" スペースのエスケープ、and検索が出来なくなっている
-	"			"call unite#custom#substitute('files', '\\\@<! ', '\\ ', -20)
-	"		" \を/に置換
-	"			"call unite#custom#substitute('files', '\\ \@!', '/', -30)
-
 	" Unite内でのマッピング
 		autocmd FileType unite call s:unite_my_settings()
 		function! s:unite_my_settings()
