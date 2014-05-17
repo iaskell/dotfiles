@@ -748,6 +748,12 @@ let g:stargate#include_paths = {
 	endif
 " }}}
 
+" for vim-ref {{{
+	let g:ref_use_vimproc=1
+	let g:ref_refe_version=2
+	let g:ref_refe_encoding = 'utf-8'
+" }}}
+
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
 "vim-powerlineとかsmartchrとか
 "unite-rails,AlpacaTags辺りは後々考える
