@@ -207,6 +207,9 @@ if [ -s ~/perl5/perlbrew/etc/bashrc ]; then
 	source ~/perl5/perlbrew/etc/bashrc
 fi
 
+#for zsh-completion
+fpath=(~/.monooki/zsh-completions/src/ $fpath)
+
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
 last | head -n 8
