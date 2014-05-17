@@ -359,6 +359,8 @@
 		noremap <C-U><C-F> :UniteWithBufferDir -buffer-name=files file<CR>
 	" 最近使ったファイルの一覧
 		noremap <C-U><C-R> :Unite file_mru<CR>
+	" ファイル一覧(再帰)
+		noremap <C-U><C-R><C-R> :Unite -start-insert file_rec/async<CR>
 	" レジスタ一覧
 		noremap <C-U><C-Y> :Unite -buffer-name=register register<CR>
 	" ファイルとバッファ
