@@ -198,8 +198,8 @@ if [ -s ${HOME}/.rbenv ]; then
 	source ~/.rbenv/completions/rbenv.zsh
 fi
 
-export GEM_HOME=~/.gem/
-export PATH=$GEM_HOME/bin:$PATH
+#export GEM_HOME=~/.gem/
+#export PATH=$GEM_HOME/bin:$PATH
 
 #for perlbrew
 if [ -s ~/perl5/perlbrew/etc/bashrc ]; then
