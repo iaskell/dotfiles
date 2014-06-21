@@ -118,8 +118,6 @@ alias ll='ls -l'
 alias lll='ls -al'
 alias killk='kill -KILL'
 alias pa='ps -A'
-alias top='top -d 1'
-
 
 alias md='mkdir'
 alias rd='rmdir'
@@ -163,6 +161,15 @@ alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
+
+case ${OSTYPE} in
+	darwin*)
+		alias top='top -i 1'
+		;;
+	linux*)
+		alias top='top -d 1'
+		;;
+esac
 
 apt-history () {
   case "$1" in
@@ -208,7 +215,14 @@ if [ -s ~/perl5/perlbrew/etc/bashrc ]; then
 fi
 
 #for zsh-completion
-fpath=(~/.monooki/zsh-completions/src/ $fpath)
+if [ -s ~/.monooki/zsh-completions/src ]; then
+	fpath=(~/.monooki/zsh-completions/src/ $fpath)
+fi
+
+#for homebrew-completion
+if [ -s /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
+	fpath=(/usr/local/Library/Contributions/brew_zsh_completion.zsh $fpath)
+fi
 
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
