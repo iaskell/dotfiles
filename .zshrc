@@ -224,6 +224,9 @@ if [ -s /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
 	fpath=(/usr/local/Library/Contributions/brew_zsh_completion.zsh $fpath)
 fi
 
+#for autojump on mac
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
 last | head -n 8
