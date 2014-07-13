@@ -8,6 +8,7 @@
 	set browsedir=buffer
 "クリップボードをWindowsと連携
 	set clipboard=unnamed
+	set clipboard+=autoselect
 "Vi互換をオフ
 	set nocompatible
 "スワップファイル用のディレクトリ
