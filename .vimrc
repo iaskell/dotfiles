@@ -62,6 +62,8 @@
 	set hid
 "折りたたみ
 	set foldmethod=marker
+"MacVim(KaoriyaVim)でテキストファイルを開いた時に自動改行されないようにする
+	autocmd FileType text setlocal textwidth=0
 "}}}
 
 " my keymap {{{
