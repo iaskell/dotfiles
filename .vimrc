@@ -93,7 +93,7 @@
 		command CharsChecker !wc -m %
 	"DiffOrig
 		if has('unix')
-			command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+			command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 		endif
 	"保存時に行末の空白を除去する
 		autocmd BufWritePre * :%s/\s\+$//ge
