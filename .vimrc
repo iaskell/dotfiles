@@ -308,6 +308,7 @@
 		NeoBundle 'todesking/ruby_hl_lvar.vim'
 		NeoBundle 'alpaca-tc/alpaca_english.git'
 		NeoBundle 'scrooloose/syntastic'
+		NeoBundle 'AndrewRadev/switch.vim'
 	"カラースキーム
 		NeoBundle 'tomasr/molokai'
 		NeoBundle 'nanotech/jellybeans.vim'
@@ -747,6 +748,9 @@ let g:stargate#include_paths = {
 	let g:ref_refe_encoding = 'utf-8'
 " }}}
 
+"for switch.vim {{{
+	nnoremap <C-C><C-C> :<C-u>Switch<CR>
+"}}}
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
 "vim-powerlineとかsmartchrとか
 "unite-rails,AlpacaTags辺りは後々考える
