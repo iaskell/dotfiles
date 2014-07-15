@@ -388,11 +388,11 @@
 	" snipet edit
 		noremap <C-U><C-S><C-E> :NeoSnippetEdit -split -vertical<CR>
 	" snipet edit
-		noremap <C-U><C-S><C-E><C-L> :Unite neosnippet/user<CR>
+		noremap <C-U><C-S><C-L> :Unite neosnippet/user<CR>
 	" snipet edit
 		noremap <C-U><C-S><C-G><C-E> :NeoSnippetEdit -runtime -split -vertical<CR>
 	" snipet edit
-		noremap <C-U><C-S><C-G><C-E><C-L> :Unite neosnippet/runtime<CR>
+		noremap <C-U><C-S><C-G><C-L> :Unite neosnippet/runtime<CR>
 	" snippet
 		noremap <C-U><C-S> :Unite neosnippet<CR>
 	" english_dictionary
