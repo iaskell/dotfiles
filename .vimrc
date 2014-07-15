@@ -328,7 +328,7 @@
 	"-----あとでなんとかする
 	augroup END
 
-	command Gdb !clang++ -g4 -O0 -std=c++11 -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
+	command Gdb !clang++ -g4 -O0 -std=c++1y -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
 " }}}
 
 " for python {{{
@@ -670,7 +670,7 @@ let g:stargate#include_paths = {
 	\   },
 	\   "cpp" : {
 	\       "type" : "cpp/clang++",
-	\       "cmdopt" : "-std=c++11 --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
+	\       "cmdopt" : "-std=c++1y --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
 	\   },
 	\   "cpp/gcc" : {
 	\       "command" : "g++",
@@ -744,7 +744,7 @@ let g:stargate#include_paths = {
 	let g:syntastic_auto_loc_list=2
 	if executable("clang++")
 		let g:syntastic_cpp_compiler = 'clang++'
-		let g:syntastic_cpp_compiler_options = '--std=c++11 -stdlib=libc++'
+		let g:syntastic_cpp_compiler_options = '--std=c++1y -stdlib=libc++'
 	endif
 " }}}
 
