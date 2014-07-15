@@ -8,6 +8,7 @@
 	set browsedir=buffer
 "クリップボードをWindowsと連携
 	set clipboard=unnamed
+	set clipboard+=autoselect
 "Vi互換をオフ
 	set nocompatible
 "スワップファイル用のディレクトリ
@@ -62,6 +63,8 @@
 	set hid
 "折りたたみ
 	set foldmethod=marker
+"MacVim(KaoriyaVim)でテキストファイルを開いた時に自動改行されないようにする
+	autocmd FileType text setlocal textwidth=0
 "}}}
 
 " my keymap {{{
@@ -92,10 +95,12 @@
 		command CharsChecker !wc -m %
 	"DiffOrig
 		if has('unix')
-			command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+			command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 		endif
 	"保存時に行末の空白を除去する
 		autocmd BufWritePre * :%s/\s\+$//ge
+	"バッファ内のファイルをリネーム
+		command! -nargs=+ -bang -complete=file Rename let pbnr=fnamemodify(bufname('%'), ':p')|exec 'f '.escape(<q-args>, ' ')|w<bang>|call delete(pbnr)
 "}}}
 
 " my syntax {{{
@@ -228,8 +233,9 @@
 		NeoBundle 'osyo-manga/quickrun-hook-u-nya-'
 		NeoBundle 'osyo-manga/vim-watchdogs'
 		NeoBundle 'Yggdroot/indentLine'
-		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
-		NeoBundle 'mattn/unite-gist'
+		NeoBundle 'lambdalisue/vim-gista'
+"		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
+"		NeoBundle 'mattn/unite-gist'
 		NeoBundle 'davidhalter/jedi-vim'
 		NeoBundle 'vim-ruby/vim-ruby'
 
@@ -325,7 +331,7 @@
 	"-----あとでなんとかする
 	augroup END
 
-	command Gdb !clang++ -g4 -O0 -std=c++11 -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
+	command Gdb !clang++ -g4 -O0 -std=c++1y -ID:/home/cpp/boost/boost_1_55_0 % && gdb a.out
 " }}}
 
 " for python {{{
@@ -385,11 +391,11 @@
 	" snipet edit
 		noremap <C-U><C-S><C-E> :NeoSnippetEdit -split -vertical<CR>
 	" snipet edit
-		noremap <C-U><C-S><C-E><C-L> :Unite neosnippet/user<CR>
+		noremap <C-U><C-S><C-L> :Unite neosnippet/user<CR>
 	" snipet edit
 		noremap <C-U><C-S><C-G><C-E> :NeoSnippetEdit -runtime -split -vertical<CR>
 	" snipet edit
-		noremap <C-U><C-S><C-G><C-E><C-L> :Unite neosnippet/runtime<CR>
+		noremap <C-U><C-S><C-G><C-L> :Unite neosnippet/runtime<CR>
 	" snippet
 		noremap <C-U><C-S> :Unite neosnippet<CR>
 	" english_dictionary
@@ -596,13 +602,20 @@ let g:stargate#include_paths = {
 	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 	" コマンドオプション
-	let g:clang_user_options = '-std=c++11'
+	let g:clang_user_options = '-std=c++1y'
 	" clang_complete では自動補完を行わない用に設定
 	let g:clang_complete_auto = 0
 	let g:clang_auto_select = 0
 	let g:clang_use_library = 1
 	"-----this need to be updated on llvm update
-	"let g:clang_library_path = '/usr/lib/llvm-3.0/lib'
+	"期待通りに動くか少し自信ない
+	if has('unix')
+		if has('macunix')
+			let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+		else
+			let g:clang_library_path = '/usr/lib/llvm-3.0/lib'
+		endif
+	endif
 
 	" Plugin key-mappings.
 	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -669,7 +682,12 @@ let g:stargate#include_paths = {
 	\   },
 	\   "cpp" : {
 	\       "type" : "cpp/clang++",
-	\       "cmdopt" : "-std=c++11 --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
+	\       "cmdopt" : "-std=c++1y --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
+	\   },
+	\   "cpp/gcc" : {
+	\       "command" : "g++",
+	\       "exec" : "%c %o %s:p",
+	\       "cmdopt" : "-std=c++1y -Wall -pedantic"
 	\   },
 	\   "watchdogs_checker/_" : {
 	\       "hook/close_quickfix/enable_success" : 1,
@@ -738,7 +756,7 @@ let g:stargate#include_paths = {
 	let g:syntastic_auto_loc_list=2
 	if executable("clang++")
 		let g:syntastic_cpp_compiler = 'clang++'
-		let g:syntastic_cpp_compiler_options = '--std=c++11 -stdlib=libc++'
+		let g:syntastic_cpp_compiler_options = '--std=c++1y -stdlib=libc++'
 	endif
 " }}}
 
@@ -750,6 +768,11 @@ let g:stargate#include_paths = {
 
 "for switch.vim {{{
 	nnoremap <C-C><C-C> :<C-u>Switch<CR>
+"}}}
+
+" for gista.vim {{{
+	let g:gista#github_user = "stack_stuck"
+	let g:gista#post_private = 1
 "}}}
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
 "vim-powerlineとかsmartchrとか

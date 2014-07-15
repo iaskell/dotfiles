@@ -33,7 +33,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 
 zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _expand _complete _correct _approximate _oldlist _history
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
@@ -85,6 +85,8 @@ setopt auto_cd
 setopt autopushd
 # 同じディレクトリは追加しない
 setopt pushd_ignore_dups
+# C-s C-qの無効化
+setopt no_flow_control
 
 #sudo横着系
 alias aptitude='sudo aptitude'
@@ -118,8 +120,6 @@ alias ll='ls -l'
 alias lll='ls -al'
 alias killk='kill -KILL'
 alias pa='ps -A'
-alias top='top -d 1'
-
 
 alias md='mkdir'
 alias rd='rmdir'
@@ -163,6 +163,15 @@ alias dstat-mem='dstat -Tclm'
 alias dstat-cpu='dstat -Tclr'
 alias dstat-net='dstat -Tclnd'
 alias dstat-disk='dstat -Tcldr'
+
+case ${OSTYPE} in
+	darwin*)
+		alias top='top -i 1'
+		;;
+	linux*)
+		alias top='top -d 1'
+		;;
+esac
 
 apt-history () {
   case "$1" in
@@ -208,7 +217,17 @@ if [ -s ~/perl5/perlbrew/etc/bashrc ]; then
 fi
 
 #for zsh-completion
-fpath=(~/.monooki/zsh-completions/src/ $fpath)
+if [ -s ~/.monooki/zsh-completions/src ]; then
+	fpath=(~/.monooki/zsh-completions/src/ $fpath)
+fi
+
+#for homebrew-completion
+if [ -s /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
+	fpath=(/usr/local/Library/Contributions/brew_zsh_completion.zsh $fpath)
+fi
+
+#for autojump on mac
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
