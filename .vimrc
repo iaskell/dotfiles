@@ -97,6 +97,8 @@
 		endif
 	"保存時に行末の空白を除去する
 		autocmd BufWritePre * :%s/\s\+$//ge
+	"バッファ内のファイルをリネーム
+		command! -nargs=+ -bang -complete=file Rename let pbnr=fnamemodify(bufname('%'), ':p')|exec 'f '.escape(<q-args>, ' ')|w<bang>|call delete(pbnr)
 "}}}
 
 " my syntax {{{
