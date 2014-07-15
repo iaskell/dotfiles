@@ -85,6 +85,8 @@ setopt auto_cd
 setopt autopushd
 # 同じディレクトリは追加しない
 setopt pushd_ignore_dups
+# C-s C-qの無効化
+setopt no_flow_control
 
 #sudo横着系
 alias aptitude='sudo aptitude'
