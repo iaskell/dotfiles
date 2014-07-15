@@ -231,8 +231,9 @@
 		NeoBundle 'osyo-manga/quickrun-hook-u-nya-'
 		NeoBundle 'osyo-manga/vim-watchdogs'
 		NeoBundle 'Yggdroot/indentLine'
-		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
-		NeoBundle 'mattn/unite-gist'
+		NeoBundle 'lambdalisue/vim-gista'
+"		NeoBundle 'mattn/gist-vim', {'depends' : 'mattn/webapi-vim'}
+"		NeoBundle 'mattn/unite-gist'
 		NeoBundle 'davidhalter/jedi-vim'
 		NeoBundle 'vim-ruby/vim-ruby'
 
@@ -741,6 +742,10 @@ let g:stargate#include_paths = {
 	let g:ref_refe_encoding = 'utf-8'
 " }}}
 
+" for gista.vim {{{
+	let g:gista#github_user = "stack_stuck"
+	let g:gista#post_private = 1
+"}}}
 "http://rhysd.hatenablog.com/entry/2013/12/10/233201
 "vim-powerlineとかsmartchrとか
 "unite-rails,AlpacaTags辺りは後々考える
