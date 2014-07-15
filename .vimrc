@@ -625,6 +625,15 @@ let g:stargate#include_paths = {
 	imap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 	smap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 
+	"vim-endwiseとの衝突回避
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function()
+		"return neocomplete#close_popup() . "\<CR>"
+		" For no inserting <CR> key.
+		return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+	endfunction
+>
+
 	" オムニ補完の手動呼び出し
 		inoremap <expr><C-Space> neocomplete#start_manual_complete()
 	" 補完候補の共通文字列補完
