@@ -599,13 +599,20 @@ let g:stargate#include_paths = {
 	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 	" コマンドオプション
-	let g:clang_user_options = '-std=c++11'
+	let g:clang_user_options = '-std=c++1y'
 	" clang_complete では自動補完を行わない用に設定
 	let g:clang_complete_auto = 0
 	let g:clang_auto_select = 0
 	let g:clang_use_library = 1
 	"-----this need to be updated on llvm update
-	"let g:clang_library_path = '/usr/lib/llvm-3.0/lib'
+	"期待通りに動くか少し自信ない
+	if has('unix')
+		if has('macunix')
+			let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+		else
+			let g:clang_library_path = '/usr/lib/llvm-3.0/lib'
+		endif
+	endif
 
 	" Plugin key-mappings.
 	imap <C-k>     <Plug>(neosnippet_expand_or_jump)
