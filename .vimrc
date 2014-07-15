@@ -672,6 +672,11 @@ let g:stargate#include_paths = {
 	\       "type" : "cpp/clang++",
 	\       "cmdopt" : "-std=c++11 --stdlib=libc++ -ID:/home/cpp/boost/boost_1_55_0",
 	\   },
+	\   "cpp/gcc" : {
+	\       "command" : "g++",
+	\       "exec" : "%c %o %s:p",
+	\       "cmdopt" : "-std=c++1y -Wall -pedantic"
+	\   },
 	\   "watchdogs_checker/_" : {
 	\       "hook/close_quickfix/enable_success" : 1,
 	\   },
