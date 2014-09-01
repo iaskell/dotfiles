@@ -1,0 +1,2 @@
+gem: --no-ri --no-rdoc
+# $ gem rdoc --all --ri でインストール済みのgemのriとrdocがまとめて入る
