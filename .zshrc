@@ -227,7 +227,9 @@ if [ -s /usr/local/Library/Contributions/brew_zsh_completion.zsh ]; then
 fi
 
 #for autojump on mac
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+if [[ ${OSTYPE} = "darwin*" ]]; then
+	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+fi
 
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
