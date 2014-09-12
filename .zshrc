@@ -13,7 +13,7 @@ ZSH_THEME="myessembeh"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(autojump compleat command-not-found git cpanm debian dircycle dirhistory rand-quote tmux urltools wd)
+plugins=(autojump compleat command-not-found cpanm debian dircycle dirhistory git knife rand-quote tmux urltools wd)
 
 source $ZSH/oh-my-zsh.sh
 
