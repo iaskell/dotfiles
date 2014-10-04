@@ -231,6 +231,9 @@ if [[ ${OSTYPE} = "darwin*" ]]; then
 	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 fi
 
+#for cocproxy.rb
+source ~/.dotfiles/commonscript.sh
+
 #前回終了時のパスに移動
 #cd `cat ~/.curdir`
 last | head -n 8
