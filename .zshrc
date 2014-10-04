@@ -201,7 +201,7 @@ apt-history () {
   esac
 }
 
-#for ruby
+#for rbenv
 if [ -s ${HOME}/.rbenv ]; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
