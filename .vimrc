@@ -689,6 +689,10 @@ let g:stargate#include_paths = {
 	\       "exec" : "%c %o %s:p",
 	\       "cmdopt" : "-std=c++1y -Wall -pedantic"
 	\   },
+	\   "ruby" : {
+	\       "command" : "ruby",
+	\       "exec" : "$RBENV_PATH %s",
+	\   },
 	\   "watchdogs_checker/_" : {
 	\       "hook/close_quickfix/enable_success" : 1,
 	\   },

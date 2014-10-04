@@ -206,6 +206,7 @@ if [ -s ${HOME}/.rbenv ]; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
 	source ~/.rbenv/completions/rbenv.zsh
+	export RBENV_PATH=`rbenv which ruby`
 fi
 
 #export GEM_HOME=~/.gem/
