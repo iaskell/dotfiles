@@ -147,7 +147,6 @@ alias viap='sudo vi /etc/apache2/apache2.conf'
 alias vismb='sudo vi /etc/samba/smb.conf'
 alias viint='sudo vi /etc/network/interfaces'
 alias vissh='sudo vi /etc/ssh/sshd_config'
-alias vizone='sudo vi /etc/bind/iaskell.dyndns.org/iaskell.dyndns.org.zone'
 
 alias logac='sudo tail /var/log/apache2/access.log'
 alias loger='sudo tail /var/log/apache2/error.log'
